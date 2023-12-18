@@ -1,0 +1,74 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <style>
+    /* Style for the form container */
+    .form-container {
+      width: 60%; /* Adjust the width as needed */
+      margin: auto;
+      padding: 20px;
+      background-color: #f4f4f4;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Style for the headers */
+    h2 {
+      color: #333; /* Change the color of the header */
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    h3 {
+      color: #666; /* Change the color of the subheader */
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    /* Style for the form elements */
+    form {
+      text-align: center;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    textarea {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      box-sizing: border-box;
+    }
+
+    button[type="submit"] {
+      background-color: #007bff; /* Change the submit button background color */
+      color: #fff; /* Change the submit button text color */
+      padding: 12px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+      transition: background-color 0.3s ease;
+    }
+
+    button[type="submit"]:hover {
+      background-color: #0056b3; /* Change the background color on hover */
+    }
+  </style>
+
+  <div class="form-container">
+    <h2>Contact Us</h2>
+    <h3>Send Us Your Valuable Feedback!</h3>
+    <form method="post" action="">
+      {% csrf_token %}
+      <input type="text" name="name" placeholder="Your Name">
+      <br>
+      <input type="email" name="email" placeholder="Your Email">
+      <br>
+      <textarea name="message" placeholder="Your Message" rows="6"></textarea>
+      <br>
+      <button type="submit">Submit</button>
+    </form>
+  </div>
+{% endblock %}

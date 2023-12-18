@@ -1,0 +1,21 @@
+{% extends 'mainapp/base.html' %}
+
+{% block title %}Overview - My School{% endblock %}
+
+{% block header %}Overview{% endblock %}
+
+{% block content %}
+<div class="diagram-container">
+    <!-- Diagram 1: Total Count -->
+    <div class="diagram" >
+        
+        {% include 'mainapp/total_count.html' with total_teachers=total_teachers total_students=total_students %}
+    </div>
+
+    <!-- Diagram 2: Students' Present Days -->
+    <div class="diagram">
+        <h2>Students' Present Days</h2>
+        {% include 'mainapp/chart_template.html' with students=students present_days=present_days %}
+    </div>
+</div>
+{% endblock %}

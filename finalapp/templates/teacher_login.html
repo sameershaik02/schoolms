@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Form</title>
+    <!-- Add Bootstrap CSS link here -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+
+        .log {
+            max-width: 400px;
+            margin: auto;
+            margin-top: 50px;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .sty {
+            font-weight: bold;
+        }
+
+        .btn-success {
+            width: 100%;
+            margin-top: 10px;
+        }
+
+        .register-link {
+            text-align: center;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body><center><h1 style="color: rgb(6, 6, 3);"><b> Teacher Login</b></h1></center>
+ 
+
+<div class="log">
+    <form action="" method="POST">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="username" class="sty">Username:</label>
+            <input type="text" name="username" class="form-control" placeholder="Username">
+        </div>
+        <div class="form-group">
+            <label for="password" class="sty">Password:</label>
+            <input type="password" name="password" class="form-control" placeholder="Password">
+        </div>
+        <button class="btn btn-success">Login</button>
+    </form>
+
+    <div class="register-link">
+        <span style="color: whitesmoke;">No account?</span>
+    </div>
+</div>
+
+<!-- Bootstrap JS and Popper.js scripts -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+</body>
+</html>

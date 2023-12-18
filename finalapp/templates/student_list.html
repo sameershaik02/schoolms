@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Students Present Days</title>
+    <style>
+       
+
+       .log {
+    width: 60%;
+    margin: 5% auto;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: rgba(200, 220, 255, 0.8);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2), 0 0 10px 5px #87CEFA, 0 0 20px 10px #cda0ee; /* Different colored shining effect */
+    text-align: center;
+}
+
+.title {
+    color: #4B0082;
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 28px; /* Increase font size */
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    margin: 15px 0; /* Adjust margin */
+    font-size: 20px; /* Increase font size */
+}
+
+    </style>
+</head>
+<body>
+    <div class="log">
+        <div class="title">Students Present Days</div>
+        <ul>
+            {% for student, present_days in student_present_days %}
+                <li>{{ student.Firstname }}: {{ present_days }} days</li>
+            {% endfor %}
+        </ul>
+    </div>
+</body>
+</html>

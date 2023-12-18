@@ -1,0 +1,30 @@
+Ecommerce
+admin:
+admin can add products and cart
+database:product,buy,cart
+user:user can watch the products and can add to cart or buy the product 
+   coding part
+django-admin startproject ecomme
+django-admin startapp myapp
+1.create a database product
+2.you have to register with admin, the product
+3.you have to import product from models.py to views.py and to bring the product objects we use p=product.objects.all
+4.sending the data base product name,image,price to the template by giving the context={'p':p} in render 
+5.In templates we use jinja or django template language 
+     {i.title}-to display the title
+     {i.img}-to display the image
+6.you have to create url in urls.py for product(index view)
+             DETAIL PAGE
+1.By using product id we can get details of a product
+2.To get the product id we use in detail view 
+      d=product.objects.get(id=product_id)
+3.By using the product id same like index view we display product name,description image 
+4.To give the quantity by the user we need to create form for quantity and product id in forms.py
+   ->class CartForm(form.Form):
+        quantity=forms.IntegerField(initials='1')
+        product_id=forms.IntegerField(widget=forms.HiddenInput)
+5.the user can initialize an order many products 
+    def __init__(self,request,*args,**kwargs):
+        self.request=request
+        super(CartForm,self).__init__(*args,**kwargs)
+6.You have to import forms from forms.py and used in detail view 

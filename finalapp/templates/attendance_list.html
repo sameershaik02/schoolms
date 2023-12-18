@@ -1,0 +1,73 @@
+<!-- templates/attendance/attendance_list.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teacher Job Application</title>
+</head>
+<style>
+ table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+th {
+    background-color: rgba(64, 240, 249, 0.991); /* Dark purple color */
+    color: #000000;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+tr:hover {
+    background-color: #e0e0e0;
+}
+form {
+    display: flex;
+    justify-content: center;
+}
+.title {
+    color: rgba(249, 64, 64, 0.991);
+    text-align: center;
+    margin-top: -2%;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+
+
+</style>
+<body>
+    <br><br><br><br>
+<div class="title"><h2>Attendance List</h2>
+<center><table>
+    <thead>
+        <tr>
+            <th>Student</th>
+            <th>Date</th>
+            <th>Attendance Status</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for attendance in attendances %}
+            <tr>
+                <td>{{ attendance.student.Firstname }}</td>
+                <td>{{ attendance.date }}</td>
+                <td>{% if attendance.is_present %}Present{% else %}Absent{% endif %}</td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+</center></div>
+</div>
+</body>
+</html>

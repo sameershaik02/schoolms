@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Teacher Job List</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <!-- Add any additional stylesheets or custom styles here -->
+</head>
+<body>
+
+  <div class="container mt-4">
+    <h2 class="text-center mb-4">Teacher Job List</h2>
+
+    {% for teacher_job in teacher_jobs %}
+      <div class="card mb-3">
+        <div class="card-body">
+          <h3 class="card-title">{{ teacher_job.first_name }} {{ teacher_job.last_name }}</h3>
+          <p class="card-text"><strong>Email:</strong> {{ teacher_job.enter_email }}</p>
+          <p class="card-text"><strong>Phone:</strong> {{ teacher_job.phone_num }}</p>
+          <p class="card-text"><strong>Status:</strong> {{ teacher_job.status }}</p>
+        </div>
+      </div>
+    {% endfor %}
+
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <!-- Add any additional scripts here -->
+
+</body>
+</html>

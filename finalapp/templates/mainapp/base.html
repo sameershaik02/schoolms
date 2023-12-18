@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel</title>
+    <style>
+        .diagram-container {
+            display: flex;
+            gap: 20px; /* Adjust the space between diagrams */
+        }
+        
+        .diagram {
+            flex: 1;
+            max-width: 400px; /* Adjust the maximum width of each diagram */
+        }
+        
+   body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        .admin-panel {
+            display: flex;
+            min-height: 100vh;
+        }
+        .sidebar {
+    width: 250px;
+    background-color: #05010b;
+    color: #fff;
+    padding: 20px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0 0 10px rgba(162, 9, 9, 0.2);
+    transition: width 0.3s ease;
+}
+
+.sidebar:hover {
+    width: 300px;
+}
+
+.sidebar a {
+    color: #fff;
+    text-decoration: none;
+    margin-bottom: 15px;
+    padding: 10px;
+    border-radius: 15px;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.sidebar a:hover {
+    text-decoration: underline;
+    background-color: #faf6f6;
+    box-shadow: 0 4px 8px rgba(158, 20, 20, 0.2);
+}
+
+/* Add styles for other elements in your sidebar, such as headings, icons, etc. */
+.sidebar h2 {
+    margin-bottom: 10px;
+    position: relative;
+}
+
+/* Style for the icon before each heading */
+.sidebar h2::before {
+    content: "\2022"; /* Unicode character for a bullet point, you can replace it with your desired symbol */
+    color: #fff;
+    margin-right: 8px; /* Adjust the spacing between the symbol and the heading */
+    font-size: 18px; /* Adjust the size of the symbol */
+}
+
+.sidebar i {
+    margin-right: 5px;
+}
+
+
+
+        .content {
+            flex: 1;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        
+
+        .content h1 {
+            color: #333;
+        }
+        /* Add some spacing around the cards */
+.content .card {
+    margin-bottom: 50px;
+}
+
+/* Style the card title */
+.card-title {
+    font-size: 2em;
+}
+
+/* Style the card text */
+.card-text {
+    font-size: 1.2em;
+}
+
+/* Style the card footer link */
+.card-footer a {
+    text-decoration:none;
+    font-weight: bold;
+}
+
+/* Add a subtle box shadow to the cards for depth */
+.card {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.des{
+        text-align:initial;
+        padding: 2px;
+    }
+
+/* Add a transition effect to the cards for smooth hover effects */
+.card:hover {
+    transform: scale(1.02);
+    transition: transform 0.3s ease;
+}
+button {
+    background: linear-gradient(to right, #e8ece9, #e5eae5);
+    color: white;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+
+button:hover {
+    color: yellow; /* Change the color on hover to make it brighter */
+}
+
+button:active {
+    transform: translateY(-3px); /* Add the jumping effect on click */
+}
+
+
+@keyframes shine {
+    0% {
+        box-shadow: 0 0 20px rgba(0, 255, 0, 0.7);
+    }
+    50% {
+        box-shadow: 0 0 30px rgba(0, 255, 0, 0.9); /* Increase the shadow size for the shining effect */
+    }
+    100% {
+        box-shadow: 0 0 20px rgba(0, 255, 0, 0.7);
+    }
+}
+
+
+button:hover {
+    background-color: green;
+    color: black;
+    animation: shine 1s infinite; /* Use the shine animation on hover */
+}
+.card-container {
+      display: flex; /* Use flexbox to arrange cards in a row */
+      justify-content: space-around; /* Adjust as needed: space-between, space-around, etc. */
+    }
+    </style>
+    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="admin-panel">
+        <div class="sidebar">
+            <h1>Dashboard</h1>
+            <a href="{% url 'finalapp:add_teacher' %}">Add Teacher</a>
+            <a href="{% url 'finalapp:add_student' %}">Add Student</a>
+            <!-- <a href="{% url 'finalapp:add_course' %}">Add Class</a> -->
+            <a href="{% url 'finalapp:add_subject' %}">Add Subject</a>
+            <a href="{% url 'finalapp:view_leave_requests' %}">Teacher Leave List  </a>
+            <a href="{% url 'finalapp:view_student_leave_requests' %}">Student leave List</a>
+            <a href="{% url 'finalapp:view_teacher_job_applications' %}">Job List</a>
+            <a href="{% url 'finalapp:view_student_admission_requests' %}">Admission List</a>
+            <a href="{% url 'finalapp:add_notice' %}">Notice</a>
+            <a href="{% url 'finalapp:update_fee' %}">Fee</a>
+            <a href="{% url 'finalapp:upload_results' %}">Results</a>
+            <a href="{% url 'finalapp:attendance_list' %}">Attendance </a>
+            
+            <a href="{% url 'finalapp:schooladmin_logout' %}">Logout</a>
+
+        </div>
+        <div class="content">
+            <h1>ADMIN</h1>
+           <!-- mainapp/another_template.html -->
+        {% block content %}
+         
+        {% endblock %}            
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* Container for admission requests */
+.admission-request-container {
+    max-width: 800px; /* Adjust the maximum width as needed */
+    margin: 0 auto; /* Center the container */
+}
+
+/* Style for admission request table */
+.admission-request-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+/* Style for table header */
+.admission-request-table th, .admission-request-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+.admission-request-table th {
+    background-color: rgba(64, 240, 249, 0.991); /* Purple */
+    color: #000000;
+}
+
+/* Style for admission request row */
+.admission-request-row {
+    background-color: #f8f8f8; /* Optional: Add a background color */
+}
+
+/* Style for action buttons */
+.action-buttons {
+    margin-top: 10px;
+}
+
+.action-buttons a {
+    display: inline-block;
+    margin-right: 10px;
+    padding: 5px 10px;
+    text-decoration: none;
+    color: #fff;
+    border-radius: 3px;
+}
+
+/* Style for approve button */
+.approve-btn {
+    background-color: #4caf50; /* Green */
+}
+
+/* Style for reject button */
+.reject-btn {
+    background-color: #f44336; /* Red */
+}
+    </style>
+</head>
+<body>
+    <center>
+        <h1>Student Admission Requests</h1>
+        <div class="admission-request-container">
+            <table class="admission-request-table">
+                <tr>
+                    <th>Student Name</th>
+                    <th>Status</th>
+                    <th>Action</th>
+                </tr>
+                {% for admission_request in admission_requests %}
+                    <tr class="admission-request-row">
+                        <td>{{ admission_request.student_form.first_name }} {{ admission_request.student_form.last_name }}</td>
+                        <td>{% if admission_request.is_approved %}Approved{% else %}Pending{% endif %}</td>
+                        <td class="action-buttons">
+                            <a class="approve-btn" href="{% url 'finalapp:approve_student_admission' admission_request.id %}">Approve</a>
+                            <a class="reject-btn" href="{% url 'finalapp:reject_student_admission' admission_request.id %}">Reject</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </table>
+        </div>
+    </center>
+</body>
+</html>

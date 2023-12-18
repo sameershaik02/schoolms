@@ -1,0 +1,68 @@
+<!-- templates/view_leave_requests_table.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    /* Add some basic styling to the table */
+.leave-requests-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.leave-requests-table th, .leave-requests-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+.leave-requests-table th {
+    background-color: #f2f2f2;
+}
+
+/* Style for the status cell */
+.status-approved {
+    color: #4caf50;
+    font-weight: bold;
+}
+
+.status-pending {
+    color: #f44336;
+    font-weight: bold;
+}
+
+  </style>
+</head>
+<body>
+  <!-- templates/view_leave_requests_table.html -->
+
+
+<h1>Updates of Leave</h1>
+<table class="leave-requests-table">
+    <thead>
+        <tr>
+            <th>Teacher</th>
+            <th>Start Date</th>
+            <th>End Date</th>
+            <th>Status</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for leave_request in leave_requests %}
+        <tr>
+            <td>{{ leave_request.teacher }}</td>
+            <td>{{ leave_request.start_date }}</td>
+            <td>{{ leave_request.end_date }}</td>
+            <td class="{% if leave_request.is_approved %}status-approved{% else %}status-pending{% endif %}">
+                {% if leave_request.is_approved %}Approved{% else %}Pending{% endif %}
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+</body>
+</html>

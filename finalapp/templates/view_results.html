@@ -1,0 +1,46 @@
+<!-- templates/view_results.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+  body {
+        font-family: 'Arial', sans-serif;
+        background-color: #f4f4f4;
+        margin: 0;
+        padding: 0;
+        font-size: larger;
+    }
+
+    h1 {
+        color: #333;
+        text-align: center;
+        text-decoration: underline;
+        margin-top: 20px;
+    }
+
+    p {
+        margin-bottom: 10px;
+    }
+
+    a {
+        color: #007BFF;
+        text-decoration: none;
+    }
+
+    a:hover {
+        text-decoration: underline;
+    }
+  
+  </style>
+<body><div>
+    <center><u><h1>View Results</h1></u></center>
+{% for result in results %}
+    <p>{{ result.student_name }} - {{ result.score }} <a href="{{ result.result_file.url }}" target="_blank">View Result</a></p>
+{% endfor %}</div>
+</body>
+</html>
+

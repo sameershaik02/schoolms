@@ -1,0 +1,153 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+  </head>
+  <style>
+      div {
+    background-color:rgba(233, 229, 229, 0);
+    color: white;
+    font-size:larger;
+  }
+  
+  </style>
+  <body >
+    <nav style=" background-color:whitesmoke" class="navbar navbar-expand-lg navbar-light"><br>
+      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAABYlBMVEX///8KQZH5qCX8//////0AL43a5en//v/6//////v8/v///P////n39OP5pyD+/f383bIAPIn4pAhSbav5pij6pB36sUb7uFj3yXhYc676slEAOY7+++785s33pAD2qCb+9OgsVJ3+79P779v2//sALIsAPY9WdagAN40AMosAO4vE0uALQo9hf6zP2+r6x4YALZD8oADytEf7pTT0qAD0/+74vmX54sH5w3v93cD00ZEALoIAN5Td6PMNRY2ltNL0rzP51p/704z85LX2sjD115j3z3r0y5D93cL0qTb3wF/2yW7xv1r40qD1sULtt0bwtDazwtc4YaL+8excdaIsVaH7xZD8tmj7nSL85tXH1N0aTI13k7uYsMSJnsJtjbJBYpeVqMzY2+AAH4K+yeRoiLKwuNJDYaoAEoTQ3eZmiKtMcZ1tgLQoWZH57L7546uQotGvud4ACncAHnoAAIVmg8CXoc4LAAAZH0lEQVR4nO1di1/bRrYee8bWjDRoQJEC1MIytvADG4PBtbkBYQikXJImW5NmmxRwoSFt06aP3e7+//cc2YCxKendX2Pcrr5fMLI9msync+Y85gUhESJEiBAhQoQIESJEiBAhQoQIESJEiBAhQoQIESJEiBAhQoQIESJEiBAhwn8rBJcTkhpSu+uGfCgwnlu1PspyYdx1Sz4Y/I8c05p2+V+XoUzH4/G0Ynfdjg8HYUUM/+zoMRR/XYoXDOldN+SDIWL458d/A0P7r21phFG3bS8tubrrlnwoUOl5nulJ/U/KkDGN3a5+St+p1cyHvpK31KIRjUJV4g9u3R8AaUiXi1vaDloqafPBrn5rNUpJLhVxx1HMP98/mKT8thKaITmntz4Eonxt8v7ejvHxH9q2PwAaadY9s/aACm1AU4UGnBih6CHk80zGdVEB4VHo2mBRKAva+ajmmdburY/qLmCQnZoXd6wd6g8kf1QpQ+Pq1eQnj59txx0TTM39x59MvoJ8X2oDuqgzqe9ghmXtjxtDMDG7ll1fs6xHfEALNc7d3RmvXnecuOl50HzPcxyrvrfezPABHqCij9I2Mvx53BiiD59JY+OtB+RCUUHndMV5tuFYTty24Z8HP7btQLG4bVpWemYOPIh2VZyRRxATeHFrXY2h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" alt="" height="100" width="100"><br>
+      
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button><br>
+    <br>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent"><br>
+        <br><ul class="navbar-nav mr-auto"><br>
+          <li class="nav-item active">
+            <a class="nav-link" href="{% url 'finalapp:home' %}"> Home</a>
+          </li>
+          <li class="nav-item active" >
+            <a class="nav-link" href="{% url 'finalapp:teacher_register' %}">Teacher</a>
+          </li>
+          <li class="nav-item active" >
+            <a class="nav-link" href="{% url 'finalapp:student_register' %}">Student</a>
+          </li>
+          <li class="nav-item active" >
+            <a class="nav-link" href="{% url 'finalapp:aboutus' %}">About us</a>
+          </li>
+          <li class="nav-item active" >
+            <a class="nav-link" href="{% url 'finalapp:contactus' %}">Contact us</a>
+          </li>
+          <li class="nav-item active" >
+            <a class="nav-link" href="{% url 'finalapp:schooladmin_login' %}">Admin</a>
+          </li>
+        </ul>
+     {% if not user.is_authenticated %}
+     <a class="btn btn-primary" href="{% url 'auth_login' %}">Login</a>
+     <a class="btn btn-primary" href="{% url 'registration_register' %}">Register</a>
+     {% else %}
+     <a class="btn btn-primary" href="{% url 'auth_logout' %}">Logout</a>
+     {% endif %}
+
+      </div>
+    </nav>
+    <div class="container">
+    {% block content %}
+    
+    {% endblock %}
+    </div>
+  </body>
+</html>
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+  <style media="screen">
+    .jumbotron {
+      margin-top: 0px;
+      margin-bottom: 0px;
+      background-image: url('{% static "images/bg2.jpg" %}');
+      background-size: cover;
+      background-repeat: no-repeat;
+    }</style>
+  </head>
+
+
+  
+  <body>
+    <style>
+      .carousel-item img {
+      object-fit: cover; /* Ensures the image covers the entire container */
+      height: 100vh; /* Sets the image height to 100% of the viewport height */
+      width: 100%; /* Ensures the image takes the full width of the container */
+    }
+      /* Reset default margin and padding */
+      body, html {
+        margin: 0;
+        padding: 0;
+      }
+    
+      /* Style to make the video fill the screen */
+      video {
+        width: 100%;
+        height: calc(100vh - 50px); /* Adjust 50px according to your navbar height */
+        margin: 0;
+        padding: 0;
+      }
+    </style>
+    
+    
+    <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
+      <ol class="carousel-indicators">
+        <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
+        <li data-target="#carouselExampleCaptions" data-slide-to="1"></li>
+        <li data-target="#carouselExampleCaptions" data-slide-to="2"></li>
+      </ol>
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img src="https://img.freepik.com/free-vector/children-outside-school-scene_1308-31442.jpg" class="d-block w-100" alt="..." >
+          <div class="carousel-caption d-none d-md-block">
+            <!-- <h5>First slide label</h5>
+            <p>Some representative placeholder content for the first slide.</p> -->
+          </div>
+        </div>
+        <div class="carousel-item">
+          <img src="https://www.eurokidsindia.com/blog/wp-content/uploads/2023/07/role-of-school-in-a-childs-life.jpg" class="d-block w-100" alt="...">
+          <div class="carousel-caption d-none d-md-block">
+            <!-- <h5>Second slide label</h5>
+            <p>Some representative placeholder content for the second slide.</p> -->
+          </div>
+        </div>
+        <div class="carousel-item">
+          <img src="https://static.vecteezy.com/system/resources/previews/000/432/226/non_2x/student-taking-school-bus-vector.jpg" class="d-block w-100" alt="...">
+          <div class="carousel-caption d-none d-md-block">
+            <!-- <h5>Third slide label</h5>
+            <p>Some representative placeholder content for the third slide.</p> -->
+          </div>
+        </div>
+      </div>
+      <button class="carousel-control-prev" type="button" data-target="#carouselExampleCaptions" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-target="#carouselExampleCaptions" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </button>
+    </div>
+    
+    <script>
+      // Autoplay functionality
+      document.addEventListener('DOMContentLoaded', function () {
+        var video = document.querySelector('video');
+        video.play();
+      });
+    </script>
+</body>
+</html>

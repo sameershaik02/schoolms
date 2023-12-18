@@ -1,0 +1,21 @@
+<!-- attendance_form.html -->
+<form action="{% url 'finalapp:take_attendance' course=course %}" method="post">
+    {% csrf_token %}
+    <table>
+        <thead>
+            <tr>
+                <th>Student Name</th>
+                <th>Present</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for field in form %}
+                <tr>
+                    <td>{{ field.label_tag }}</td>
+                    <td>{{ field }}{{ form['student_id_'+field.id_for_label] }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <input type="submit" value="Submit">
+</form>

@@ -1,0 +1,40 @@
+{% extends 'mainapp/base.html' %}
+
+{% block title %}Teachers Total - My School{% endblock %}
+
+{% block header %}Teachers Total{% endblock %}
+
+{% block content %}
+    <h2>Total Teachers: {{ total_teachers }}</h2>
+
+    <canvas id="teachersChart" width="400" height="200"></canvas>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var ctx = document.getElementById('teachersChart').getContext('2d');
+            var totalTeachers = {{ total_teachers }};
+
+            var chart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: ['Total Teachers'],
+                    datasets: [{
+                        label: 'Total Teachers',
+                        data: [totalTeachers],
+                        backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                        borderColor: 'rgba(75, 192, 192, 1)',
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
+        });
+    </script>
+{% endblock %}

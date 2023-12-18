@@ -1,0 +1,49 @@
+<!-- admission_list.html -->
+{% extends 'base.html' %}
+
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admission List</title>
+</head>
+<body>
+
+  <h2>Admission List</h2>
+
+  <table border="1px">
+      <thead>
+          <tr>
+              <th>ID</th>
+              <th>First Name</th>
+              <th>Last  Name</th>
+              <th>DOB</th>
+              <th>Grade</th>
+              <th>Phone Number</th>
+              <th>Email</th>
+              <!-- Add more columns as needed -->
+          </tr>
+      </thead>
+      <tbody>
+          {% for admission in admissions %}
+              <tr>
+                  <td>{{ admission.id }}</td>
+                  <td>{{ admission.first_name}}</td>
+                  <td>{{ admission.last_name}}</td>
+                  <td>{{ admission.date_of_birth}}</td>
+                  <td>{{ admission.grade}}</td>
+                  <td>{{ admission.contact_number}}</td>
+                  <td>{{ admission.email}}</td>
+
+
+                  <!-- Add more columns as needed -->
+              </tr>
+          {% endfor %}
+      </tbody>
+  </table>
+
+</body>
+</html>
+{% endblock %}

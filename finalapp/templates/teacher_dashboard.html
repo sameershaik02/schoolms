@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teacher Dashboard</title>
+    <!-- Bootstrap CDN -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .sidebar {
+            height: 100%;
+            width: 250px;
+            position: fixed;
+            background-color: #111;
+            padding-top: 20px;
+        }
+        .sidebar a {
+            padding: 10px 15px;
+            text-decoration: none;
+            font-size: 18px;
+            color: #818181;
+            display: block;
+            transition: 0.3s;
+        }
+        .sidebar a:hover {
+            color: #f1f1f1;
+        }
+        .content {
+            margin-left: 250px;
+            padding: 16px;
+        }
+        .marquee {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="sidebar">
+    <a href="#summary">Overall Summary</a>
+    <a href="#charts">Charts</a>
+    <a href="#students">Students</a>
+    <a href="#subjects">Subjects</a>
+    <a href="#leave">Leave Status</a>
+    <a href="#attendance">Attendance</a>
+    <a href="#results">Results</a>
+  
+    <a href="{% url 'finalapp:submit_teacher_feedback' %}">Submit teacher feedback</a>
+</div>
+
+<div class="content">
+    <!-- Your dashboard content goes here -->
+    <!-- Use appropriate HTML elements and JavaScript to implement functionalities -->
+</div>
+
+<!-- Marquee for the heading -->
+<div class="marquee">
+    <marquee behavior="scroll" direction="left" scrollamount="4" width="70%">
+        <h1 class="display-4 text-info">Teacher Dashboard</h1>
+    </marquee>
+</div>
+
+<!-- Bootstrap JS and Popper.js (if needed) -->
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+</body>
+</html>

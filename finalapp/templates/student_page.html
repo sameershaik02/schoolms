@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- Add Bootstrap CSS link here -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<style>
+    body {
+        background-image: url("https://t3.ftcdn.net/jpg/05/96/59/18/360_F_596591823_3BYze4Efc1HixPsuio20BizY1AsT0nOJ.jpg");
+        background-repeat: round;
+        background-size: cover;
+        font-family: 'Nunito Sans', sans-serif;
+    }
+    
+    *{
+        margin:0px;
+        padding: 0px;
+    }
+    body{
+        font-family: 'Nunito Sans', sans-serif;
+    }
+    @keyframes borderMove {
+    0% {
+        border-image-source: linear-gradient(45deg, #9e1479, #0e4b7d);
+    }
+    25% {
+        border-image-source: linear-gradient(45deg, #16588e, #881269);
+    }
+    50% {
+        border-image-source: linear-gradient(45deg, #3d1132, #041a2c);
+    }
+    75% {
+        border-image-source: linear-gradient(45deg, #0f4e81, #91036b4e);
+    }
+    100% {
+        border-image-source: linear-gradient(45deg, #f1b5e1, #d1e5f5);
+    }
+}
+  
+    
+    .cards {
+    position: relative;
+    width: 17%;
+    display: inline-block;
+    background-color: aliceblue;
+    border-radius: 10px;
+    margin: 55px;
+    box-shadow: 2px 2px 10px black;
+    overflow: hidden;
+    animation: moveCards 2s ease-in-out infinite;
+    border: 4px solid;
+    border-image: linear-gradient(45deg, #500f3e, #062a47);
+    border-image-slice: 1;
+
+    /* Apply animation to the border */
+    
+}
+.cards::before {
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(45deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 100%);
+    opacity: 0;
+    transform-origin: 0 0;
+    transform: rotate(-45deg);
+    animation: sparkle 2s ease-in-out infinite;
+}
+
+@keyframes moveCards {
+    0% {
+        transform: translateX(0);
+    }
+
+    50% {
+        transform: translateX(0px);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}
+
+@keyframes sparkle {
+    0% {
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+
+.image img {
+    width: 100%;
+    border-radius: 50%;
+    transition: transform 0.3s ease-in-out;
+}
+
+.image img:hover {
+    transform: scale(1.1);
+}
+.title {
+    text-align: center;
+    padding: 5px;
+    font-size: 5em; /* Adjust the font size as needed */
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.8), 0 0 20px rgba(255, 255, 255, 0.8), 0 0 30px rgba(255, 255, 255, 0.8), 0 0 40px rgba(255, 255, 255, 0.8);
+}
+    .des{
+        text-align: center;
+        padding: 4px;
+    }
+    button {
+    background: linear-gradient(to right, #09931e, #00BFFF);
+    color: white;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+
+button:hover {
+    color: yellow; /* Change the color on hover to make it brighter */
+}
+
+button:active {
+    transform: translateY(-3px); /* Add the jumping effect on click */
+}
+
+
+@keyframes shine {
+    0% {
+        box-shadow: 0 0 20px rgba(0, 255, 0, 0.7);
+    }
+    50% {
+        box-shadow: 0 0 30px rgba(0, 255, 0, 0.9); /* Increase the shadow size for the shining effect */
+    }
+    100% {
+        box-shadow: 0 0 20px rgba(0, 255, 0, 0.7);
+    }
+}
+
+
+button:hover {
+    background-color: green;
+    color: black;
+    animation: shine 1s infinite; /* Use the shine animation on hover */
+}
+.button-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+            background-color: #f8f9fa; /* Light background color */
+        }
+
+.btn {
+            margin-right: 10px;
+        }
+
+.title {
+    margin-top: 5%;
+    text-align: center;
+    top: 50%;
+    left: 50%;
+    font-family: 'Nunito Sans', sans-serif;
+}
+
+.title h1 {
+    color: rgb(97, 144, 240);
+    font-size: 50px;
+}
+
+/* Increase the size of all text */
+.title, .title * {
+    font-size: 5em; /* You can adjust the multiplier to increase or decrease the size */
+}
+.logout-link {
+        text-decoration: none;
+        color: #fff;  /* Set your desired text color */
+        background-color: #dc3545;  /* Set your desired background color */
+        padding: 20px 15px;
+        border-radius: 5px;
+        margin-top: 50%;
+    }
+</style>
+<body>
+    <br><a href="{% url 'finalapp:teacher_logout' %}" class="logout-link">Logout</a>
+    <div class="title">
+        <h1>Class Room</h1>
+    </div>
+    <!-- <div class="button-container">
+    {% if not user.is_authenticated %}
+        <a class="btn btn-primary" href="{% url 'auth_login' %}">Login</a>
+        <a class="btn btn-primary" href="{% url 'registration_register' %}">Register</a>
+    {% else %}
+        <a class="btn btn-primary" href="{% url 'auth_logout' %}">Logout</a>
+    {% endif %}
+    </div> -->
+            
+    <div class="cards">
+        <div class="image">
+            <img src="https://png.pngtree.com/png-clipart/20221221/original/pngtree-school-admission-open-logo-design-png-image_8791593.png" width="300" height="230">
+        </div>
+        <div class="des">
+            <a href="{% url 'finalapp:student_admission_request' %}"><button>Admission Form</button></a>
+        </div>
+    </div>
+
+    <div class="cards">
+        <div class="image">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTeM9WV2Jngmm7UAD1FViCthu1-a5kz1V6GAA&usqp=CAU" width="300" height="230">
+        </div>
+        <div class="des">
+            <a href="{% url 'finalapp:submit_feedback' %}"><button>Student Feedback</button></a>
+        </div>
+    </div>
+
+    <div class="cards">
+        <div class="image">
+            <img src="https://icon-library.com/images/leave-icon/leave-icon-0.jpg" width="300" height="230">
+        </div>
+        <div class="des">
+            <a href="{% url 'finalapp:student_leave_request' %}"><button>Apply for leave</button></a>
+        </div>
+    </div>
+
+    <div class="cards">
+        <div class="image">
+            <img src="https://cdn.iconscout.com/icon/premium/png-256-thumb/leave-application-system-2753770-2286613.png" width="300" height="230">
+        </div>
+        <div class="des">
+            <a href="{% url 'finalapp:view_student_leave_requests_table' %}"><button>Updates of leave</button></a>
+        </div>
+    </div>
+
+
+    <div class="cards">
+        <div class="image">
+            <img src="https://static.vecteezy.com/system/resources/thumbnails/022/907/388/small/important-notice-rubber-stamp-seal-vector.jpg" width="300" height="230">
+        </div>
+        <div class="des">
+            <a href="{% url 'finalapp:notice_list' %}"><button>View Notice</button></a>
+        </div>
+    </div>
+
+
+    <div class="cards">
+        <div class="image">
+            <img src="https://img.freepik.com/premium-vector/questions-answers-icon-question-support-icon-logo-isolated-sign-symbol-vector_662353-283.jpg" width="300" height="230">
+        </div>
+        <div class="des">
+            <a href="{% url 'finalapp:view_question_papers' %}"><button>View Questions</button></a>
+        </div>
+    </div>
+
+    <div class="cards">
+        <div class="image">
+            <img src="https://images-platform.99static.com/9775qwSdYD_af1iH9pvAfIS_2hY=/542x581:1456x1495/500x500/top/smart/99designs-contests-attachments/120/120884/attachment_120884228" height="230" >
+        </div>
+        <div class="des">
+            <a href="{% url 'finalapp:view_answer_sheets' %}"><button>View Answers</button></a>
+        </div>
+    </div>
+
+    <div class="cards">
+        <div class="image">
+            <img src="https://thumbs.dreamstime.com/b/fees-icon-charges-192969055.jpg" width="300" height="230">
+        </div>
+        <div class="des">
+            <a href="{% url 'finalapp:view_fees' %}"><button>View Fee</button></a>
+        </div>
+    </div>
+
+
+    <div class="cards">
+        <div class="image">
+            <img src="https://e7.pngegg.com/pngimages/1/804/png-clipart-logo-reading-school-education-school-child-hand.png" width="300" height="230">
+        </div>
+        <div class="des">
+            <a href="{% url 'finalapp:course_list' %}"><button>View Classes</button></a>
+        </div>
+    </div>
+
+    
+
+    
+
+    <div class="cards">
+        <div class="image">
+            <img src="https://mir-s3-cdn-cf.behance.net/projects/404/d9871e105844809.Y3JvcCwzNzI5LDI5MTcsOSww.png " width="300" height="230">
+        </div>
+        <div class="des">
+            <a href="{% url 'finalapp:subject_list' %}"><button>View Subjects</button></a>
+        </div>
+    </div>
+
+    <div class="cards">
+        <div class="image">
+            <img src="https://e7.pngegg.com/pngimages/873/515/png-clipart-thesis-education-the-hub-fitness-results-based-training-student-uttaradit-hospital-personal-goals-list-worksheet-text-logo-thumbnail.png" width="300" height="230">
+        </div>
+        <div class="des">
+            <a href="{% url 'finalapp:view_results' %}"><button>View Results</button></a>
+        </div>
+    
+    
+    </div>
+
+
+   
+    
+    
+
+
+
+
+</body>
+</html>

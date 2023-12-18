@@ -1,0 +1,100 @@
+{% extends 'mainapp/base.html' %}
+
+{% block content %}
+<!-- dashboard.html -->
+<section class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-3 col-6">
+                <div class="card bg-info">
+                    <div class="card-body">
+                        <h3 class="card-title" style="color:white;">{{ student_count }}</h3>
+                        <p class="card-text" style="color:white;">Total Students</p>
+                    </div>
+                    <div class="card-footer">
+                        <a href="{% url 'finalapp:add_student_details' %}" class="card-link" style="color:white">
+                            More info <i class="fa fa-arrow-circle-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-lg-3 col-6">
+                <div class="card bg-success">
+                    <div class="card-body">
+                        <h3 class="card-title" style="color: white;">{{ teacher_count }}</h3>
+                        <p class="card-text"style="color: white;">Total Staff</p>
+                    </div>
+                    <div class="card-footer">
+                        <a href="{% url 'finalapp:add_teacher_details' %}" class="card-link" style="color:white">
+                            More info <i class="fa fa-arrow-circle-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-6">
+                <div class="card" style="background-color: blueviolet;">
+                    <div class="card-body">
+                        <h3 class="card-title" style="color: white;">{{ course_count }}</h3>
+                        <p class="card-text" style="color: white;">Total Class</p>
+                    </div>
+                    <div class="card-footer">
+                        <a href="{% url 'finalapp:course_list' %}" class="card-link" style="color:white" >
+                            More info <i class="fa fa-arrow-circle-right" ></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+        <div class="col-lg-3 col-6">
+            <div class="card bg-danger">
+                <div class="card-body" >
+                    <h3 class="card-title" style="color: white;">{{ subject_count }}</h3>
+                    <p class="card-text" style="color: white;">Total Subjects</p>
+                </div>
+                <div class="card-footer">
+                    <a href="{% url 'finalapp:subject_list' %}" class="card-link" style="color:white">
+                        More info <i class="fa fa-arrow-circle-right"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+        </div><br><br>
+
+        
+        <div class="card-container">
+        <div class="cards">
+            <div class="image">
+                <img src="https://i.ytimg.com/vi/z-1qIGe86V4/maxresdefault.jpg" height="300" width="300">
+            </div>
+            <div class="des">
+                <a href="{% url 'finalapp:chart_view' %}"><button>View Attendance List </a></button>
+            </div>
+        </div>
+    
+        <div class="cards">
+            <div class="image">
+                <img src="https://www.shutterstock.com/image-vector/teacher-icon-training-presentation-seminar-600w-342493829.jpg" height="300" width="300">
+            </div>
+            <div class="des">
+                <a href="{% url 'finalapp:teacher_total' %}"><button>Total Teachers </a></button>
+            </div>
+        </div>
+        
+    <div class="cards">
+        <div class="image">
+            <img src="https://t3.ftcdn.net/jpg/05/56/90/20/360_F_556902040_mNrTEGg5i4S83J9C5mvYwWKDgoWXUPPe.jpg" height="300" width="300">
+        </div>
+        <div class="des">
+            <a href="{% url 'finalapp:overView' %}"><button>Over View </a></button>
+        </div>
+    </div>
+    </div>
+</div>
+    
+        
+
+</section>
+
+{% endblock %}

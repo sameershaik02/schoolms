@@ -1,0 +1,23 @@
+<!-- view_excel.html -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>View Excel Files</title>
+</head>
+
+<body>
+  <h2>View Attendance</h2>
+  {% for excel_file in excel_files %}
+    <p>{{ excel_file.file.name }} - <a href="{{ excel_file.file.url }}" target="_blank">Download</a></p>
+  {% endfor %}
+</body>
+
+</html>
+
+
+
+
+
+

@@ -1,0 +1,23 @@
+from django.contrib import admin
+from finalapp.models import ExcelFile,Teacher,Payment,Attendance,Fee,QuestionPaper,AnswerSheet,Notice,Student,TeacherJob,StudentForm,Userdata,Userdata1,TeacherLeave,Course,StudentLeave,Subject,Session,StudentFeedback,TeacherFeedback
+# Register your models here.
+admin.site.register(Teacher)
+admin.site.register(ExcelFile)
+admin.site.register(Student)
+admin.site.register(Userdata)
+admin.site.register(Userdata1)
+admin.site.register(Course)
+admin.site.register(Subject)
+admin.site.register(Session)
+admin.site.register(StudentFeedback)
+admin.site.register(TeacherFeedback)
+admin.site.register(StudentLeave)
+admin.site.register(TeacherLeave)
+admin.site.register(StudentForm)
+admin.site.register(TeacherJob)
+admin.site.register(Notice)
+admin.site.register(QuestionPaper)
+admin.site.register(AnswerSheet)
+admin.site.register(Fee)
+admin.site.register(Attendance)
+admin.site.register(Payment)

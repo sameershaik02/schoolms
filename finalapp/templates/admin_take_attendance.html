@@ -1,0 +1,65 @@
+<!-- admin_take_attendance.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+  <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+  <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
+  <style media="screen">
+    a:link {
+      text-decoration: none;
+    }
+
+    a:link {
+      text-decoration: none;
+    }
+
+    h6 {
+      text-align: center;
+    }
+
+    .row {
+      margin: 100px;
+    }
+  </style>
+
+</head>
+
+<body>
+  <div class="container">
+    <div class="row">
+      <div class="panel panel-primary">
+        <div class="panel-heading">
+          <h6 class="panel-title">Attendance</h6>
+        </div>
+        <form method="post" action="{% url 'finalapp:save_attendance' %}">
+          {% csrf_token %}
+          <label for="attendance_date">Select Attendance Date:</label>
+          {{ form.as_p }}
+          <button type="submit">Select Date</button>
+        </form>
+
+        <table class="table table-hover" id="dev-table">
+          <thead>
+            <tr>
+              <th>Student Name</th>
+              <th>Attendance</th>
+            </tr>
+          </thead>
+          {% for student_data in attendance_data %}
+          <tr>
+            <td>{{ student_data.Firstname }} {{ student_data.Lastname }}</td>
+          </tr>
+          {% endfor %}
+          
+
+        </table>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

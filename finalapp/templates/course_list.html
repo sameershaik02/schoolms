@@ -1,0 +1,82 @@
+<!-- templates/courses/course_list.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+        body {
+        font-family: 'Arial', sans-serif;
+        background-color: #f4f4f4;
+        margin: 0;
+        padding: 0;
+    }
+
+    h1 {
+        color:black;
+        text-align: center;
+    }
+
+    table {
+        width: 20%;
+        border-collapse: collapse;
+        margin: 20px 0;
+        margin-top: auto;
+        margin-bottom: auto;
+        margin-left: auto;
+        margin-right: auto;
+        background-color: #fdf9f9;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        
+    }
+
+    th, td {
+        border: 5px solid #ddd;
+        padding: 10px;
+        text-align: left;
+    }
+
+    th {
+            background-color: rgba(64, 240, 249, 0.991); /* Dark purple color */
+            color: black;
+        }
+
+    tr:hover {
+        background-color: #f5f5f5;
+    }
+
+  
+  </style>
+<body><div>
+    <center><u><h1>Class List</h1></u></center>
+    <br><br>
+<table border="1">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th><center>Total No of Students</center></th>
+            <!-- <th>Active</th>
+            <th>Created At</th>
+            <th>Updated At</th> -->
+        </tr>
+    </thead>
+    <tbody>
+        {% for course in courses %}
+            <tr>
+                <td>{{ course.name }}</td>
+                <td><center>{{ course.academic }}</center></td>
+                <!-- <td>{{ course.is_active }}</td>
+                <td>{{ course.created_at }}</td>
+                <td>{{ course.updated_at }}</td> -->
+                    
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+</div>
+</body>
+</html>

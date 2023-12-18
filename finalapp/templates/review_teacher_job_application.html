@@ -1,0 +1,5 @@
+<p>{{ job_application.first_name }} {{ job_application.last_name }} - Status: {{ job_application.status }}</p>
+{% if job_application.status == 'PENDING' %}
+    <a href="{% url 'approve_teacher_job_application' job_application.id %}">Approve</a>
+    <a href="{% url 'reject_teacher_job_application' job_application.id %}">Reject</a>
+{% endif %}

@@ -1,0 +1,85 @@
+<!-- templates/subjects/subject_list.html -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body {
+        font-family: 'Arial', sans-serif;
+        background-color: #f4f4f4;
+        margin: 0;
+        padding: 0;
+    }
+
+    h1 {
+        color: black;
+        text-align: center;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 20px 0;
+        background-color: #fdf9f9;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    th, td {
+        border: 3px solid #ddd;
+        padding: 8px;
+        text-align: left;
+    }
+
+    th {
+            background-color: rgba(64, 240, 249, 0.991); /* Dark purple color */
+            color: black;
+        }
+
+    tr:hover {
+        background-color: #f5f5f5;
+    }
+  
+  </style>
+
+<body>
+    <div >
+        <center><u><h1>Subject List</h1></u></center><br><br>
+<table border="1">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Code</th>
+            <th>Description</th>
+            <th>Department</th>
+            <!-- <th>Credit</th> -->
+            <th>Created At</th>
+            <th>Updated At</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for subject in subjects %}
+            <tr>
+                <td>{{ subject.name }}</td>
+                <td>{{ subject.code }}</td>
+                <td>{{ subject.description }}</td>
+                <td>{{ subject.department }}</td>
+                <!-- <td>{{ subject.credit }}</td> -->
+                <td>{{ subject.created_at }}</td>
+                <td>{{ subject.updated_at }}</td>
+                
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+
+
+    </div>
+    
+</body>
+</html>

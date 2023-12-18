@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <div class="container mt-4">
+    <h2 class="mb-4">Student Leave Requests</h2>
+    {% for leave_request in leave_list %}
+      <div class="card mb-3">
+        <div class="card-body">
+          <h5 class="card-title">{{ leave_request.student }} - {{ leave_request.start_date }} to {{ leave_request.end_date }}</h5>
+          {% if leave_request.is_approved %}
+            <p class="card-text text-success">Approved</p>
+          {% elif leave_request.rejection_reason %}
+            <p class="card-text text-danger">Rejected: {{ leave_request.rejection_reason }}</p>
+          {% else %}
+            <p class="card-text text-warning">Pending</p>
+          {% endif %}
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+{% endblock %}

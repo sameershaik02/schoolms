@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .job-application-container {
+            max-width: 800px; /* Adjust the maximum width as needed */
+            margin: 0 auto; /* Center the container */
+        }
+
+        /* Style for job application table */
+        .job-application-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        /* Style for table header */
+        .job-application-table th, .job-application-table td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        .job-application-table th {
+            background-color: rgba(64, 240, 249, 0.991); /* Dark purple color */
+            color: black;
+        }
+
+        /* Style for job application row */
+        .job-application-row {
+            background-color: #f8f8f8; /* Optional: Add a background color */
+        }
+
+        /* Style for action buttons */
+        .action-buttons {
+            margin-top: 10px;
+        }
+
+        .action-buttons a {
+            display: inline-block;
+            margin-right: 10px;
+            padding: 5px 10px;
+            text-decoration: none;
+            color: #fff;
+            border-radius: 3px;
+        }
+
+        /* Style for approve button */
+        .approve-btn {
+            background-color: #4caf50; /* Green */
+        }
+
+        /* Style for reject button */
+        .reject-btn {
+            background-color: #f44336; /* Red */
+        }
+    </style>
+</head>
+<body>
+    <center>
+        <div class="job-application-container">
+            <h1>Teacher Job Applications</h1>
+            <table class="job-application-table">
+                <tr>
+                    <th>Student Name</th>
+                    <th>Status</th>
+                    <th>Action</th>
+                </tr>
+                {% for job_application in job_applications %}
+                    <tr class="job-application-row">
+                        <td>{{ job_application.first_name }} {{ job_application.last_name }}</td>
+                        <td>{{ job_application.status }}</td>
+                        <td class="action-buttons">
+                            <a class="approve-btn" href="{% url 'finalapp:approve_teacher_job_application' job_application.id %}">Approve</a>
+                            <a class="reject-btn" href="{% url 'finalapp:reject_teacher_job_application' job_application.id %}">Reject</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </table>
+        </div>
+    </center>
+</body>
+</html>

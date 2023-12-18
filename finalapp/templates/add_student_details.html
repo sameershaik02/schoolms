@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+      font-family: 'Arial', sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 0;
+  }
+  
+  table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 20px 0;
+      background-color: #fdf9f9;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+
+        th, td {
+            border: 3px solid #dedede;
+            padding: 8px;
+            text-align: left;
+        }
+        
+        th {
+            background-color: rgba(64, 240, 249, 0.991); /* Dark purple color */
+            color: black;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        tr:hover {
+            background-color: #e0e0e0;
+        }
+
+        form {
+            display: flex;
+            justify-content: center;
+        }
+
+        input[type="submit"] {
+            background-color: #dc3545; /* Red color for delete button */
+            color: #fff;
+            padding: 5px 10px;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #c82333; /* Darker red color on hover */
+        }
+
+        /* Set max-width for the images */
+        img {
+            max-width: 50px; /* Adjust the size as needed */
+            max-height: 50px;
+        }
+    </style>
+</head>
+<body><div>
+    <center><u><h1>Total Students</h1></u></center>
+    <br><br>
+    <table border="1px">
+        <thead>
+            <tr>
+                <th scope="col">S.No</th>
+                <th scope="col">Firstname</th>
+                <th scope="col">Lastname</th>
+                <th scope="col">Email</th>
+                <th scope="col">Profile</th>
+                <th scope="col">Gender</th>
+                <th scope="col">Class</th>
+                <th scope="col">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for m in c %}
+            <tr>
+                <td scope="row">{{forloop.counter}}</td>
+                <td>{{m.Firstname}}</td>
+                <td>{{m.Lastname}}</td>
+                <td>{{m.Email}}</td>
+                <td>
+                    {% if m.Profile %}
+                        <img src="{{ m.Profile.url }}" alt="">
+                    {% else %}
+                        <p>No Profile Image</p>
+                    {% endif %}
+                </td>
+                <td>{{m.Gender}}</td>
+                <td>{{m.Co}}</td>
+                <td>
+                    <form action="" method="post">
+                        {% csrf_token %}
+                        <input type="hidden" name="Firstname" value="{{m.id}}">
+                        <input class="btn btn-danger" type="submit" name="delete" value="Delete">
+                    </form>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table><br>
+</body>
+</html>

@@ -1,0 +1,79 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+      body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            width: 70%;
+            margin: 20px auto;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        h1 {
+            color: #4B0082;
+            text-decoration: underline;
+        }
+
+        .info-box {
+            border: 2px solid #4B0082;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+        }
+
+        p {
+            margin: 5px 0;
+            color: #333;
+        }
+
+        a {
+            display: inline-block;
+            padding: 8px 16px;
+            margin-top: 10px;
+            background-color: #4B0082;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        a:hover {
+            background-color: #6A5ACD;
+        }
+
+        hr {
+            border: 1px solid #ddd;
+            margin: 15px 0;
+        }
+  
+  
+  </style>
+
+<body>
+    
+<div>> <div class="container">
+    <center><h1 ><u>Notice Board</u></h1></center>{% for notice in notices %}
+    <div class="info-box">
+    <h3>{{ notice.title }}</h3>
+    <p>{{ notice.content }}</p>
+    <p>Author: {{ notice.author.username }}</p>
+    <p>Created at: {{ notice.created_at }}</p></div>
+    <hr>
+{% endfor %}</div></div>
+</body>
+</html>

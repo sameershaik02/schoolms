@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<style>
+         .sty
+        {
+            font-size:15px;
+            color:white;
+        }
+    
+        .register-link {
+            margin-top: 20px; /* Add some top margin to separate from the form */
+            text-align: center; /* Align the text to the right */
+        }
+    
+        .register-link a {
+            color:blue; /* Set the link color to white */
+        }
+        .title{
+        color:antiquewhite;
+        margin-top:5%;
+        text-align:center;
+        top:50%;
+        left: 50%;
+        font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    }
+    @keyframes borderMove {
+    0% {
+        border-image-source: linear-gradient(45deg, #9e1479, #0e4b7d);
+    }
+    25% {
+        border-image-source: linear-gradient(45deg, #16588e, #881269);
+    }
+    50% {
+        border-image-source: linear-gradient(45deg, #3d1132, #041a2c);
+    }
+    75% {
+        border-image-source: linear-gradient(45deg, #0f4e81, #91036b4e);
+    }
+    100% {
+        border-image-source: linear-gradient(45deg, #f1b5e1, #d1e5f5);
+    }
+}
+
+.cards {
+    width: 50%;
+    height: 500px;
+    text-align: center;
+    display: block;
+    margin: 55px auto;
+    box-shadow: 2px 2px 10px black;
+    font-size: large;
+    position: relative; /* Add position relative to allow absolute positioning of pseudo-element */
+
+    /* Gradient background */
+    background: linear-gradient(45deg, #d1e5f5, #f1b5e1);
+    color: white; /* Set text color to contrast with the background */
+
+    /* Gradient border */
+    border: 5px solid;
+    border-image: linear-gradient(45deg, #500f3e, #062a47);
+    border-image-slice: 1;
+
+    /* Apply animation to the border */
+    animation: borderMove 5s infinite linear;
+}
+
+/* Create a pseudo-element for the top-left corner to maintain the gradient border */
+.cards::before {
+    content: "";
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    width: 10px;
+    height: 10px;
+    
+}
+
+
+button {
+    position: relative;
+    background: linear-gradient(to right, #065111, #065972);
+    color: white;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out, color 0.3s ease-in-out;
+    overflow: hidden;
+}
+
+button:hover {
+    color: yellow; /* Change the color on hover to make it brighter */
+}
+
+button:active {
+    transform: translateY(-3px); /* Add the jumping effect on click */
+}
+
+@keyframes shine {
+    0% {
+        box-shadow: 0 0 20px rgba(20, 7, 110, 0.7);
+    }
+    50% {
+        box-shadow: 0 0 30px rgba(55, 16, 140, 0.9); /* Increase the shadow size for the shining effect */
+    }
+    100% {
+        box-shadow: 0 0 20px rgba(51, 3, 87, 0.7);
+    }
+}
+
+
+
+.button-border {
+    position: absolute;
+    content: "";
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    pointer-events: none;
+    z-index: -1;
+    box-shadow: 0 0 20px rgba(0, 255, 0, 0.7);
+    animation: shine 1s infinite;
+}
+
+form {
+        max-width: 400px;
+        max-height: 200px;
+        margin: 0 auto;
+    }
+
+    /* Style for form labels */
+    label {
+        display: block;
+        margin-bottom: 0px;
+        color: #333; /* Change the color as needed */
+    }
+
+    /* Style for text input fields */
+    input[type="text"], input[type="password"], textarea {
+        width: 100%;
+        padding: 15px;
+        margin-bottom: 25px;
+        box-sizing: border-box;
+        border: 1px solid #ccc; /* Change the border color as needed */
+        border-radius: 5px;
+        font-size: 15px;
+        color: #555; /* Change the text color as needed */
+    }
+    .title {
+    text-align: center;
+    padding: 5px;
+    font-size: 5em; /* Adjust the font size as needed */
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.8), 0 0 20px rgba(255, 255, 255, 0.8), 0 0 30px rgba(255, 255, 255, 0.8), 0 0 40px rgba(255, 255, 255, 0.8);
+}
+
+.title {
+    margin-top: 5%;
+    text-align: center;
+    top: 50%;
+    left: 50%;
+    font-family: 'Nunito Sans', sans-serif;
+}
+
+.title h1 {
+    color: rgb(97, 144, 240);
+    font-size: 50px;
+}
+
+/* Increase the size of all text */
+.title, .title * {
+    font-size: 5em; /* You can adjust the multiplier to increase or decrease the size */
+}
+
+</style>
+<body>
+  <div class="log">
+    <div class="cards" ><br><br>
+      
+      <h2><b>Submit Feedback</b></h2><br><br>
+      <form method="post" >
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Submit Feedback</button>
+    </form>
+    </div>
+    </div>
+</body>
+</html>
+
+
